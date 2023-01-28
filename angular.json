@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "neuen": {
+      "projectType": "library",
+      "root": "projects/neuen",
+      "sourceRoot": "projects/neuen/src",
+      "prefix": "neu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/neuen/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/neuen/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/neuen/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/neuen/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
   }
 }
