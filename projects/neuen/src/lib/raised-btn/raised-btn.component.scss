@@ -1,0 +1,73 @@
+$bg: #7161ef;
+$fg: #c4bdf8;
+
+$bg-dark-outset: adjust-color($bg, $saturation: -0.3%, $lightness: -6.1%);
+$bg-light-outset: adjust-color($bg, $saturation: 0.3%, $lightness: 6.1%);
+$bg-dark-inset: adjust-color($bg, $saturation: -0.1%, $lightness: -2.9%);
+$bg-light-inset: adjust-color($bg, $saturation: 0.1%, $lightness: 2.9%);
+$bg-active: adjust-color($bg, $saturation: 5%, $lightness: 1.5%);
+$border: adjust-color($bg, $lightness: -1.0%);
+
+.outer-body {
+    width: 130px;
+    height: 80px;
+    padding: 15px;
+}
+
+.interactive {
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+}
+
+.main-body {
+    width: 100px;
+    height: 50px;
+    position: relative;
+    border-radius: 50px;
+  
+    background: $bg;
+    color: $fg;
+    border: 0 $border solid;
+  
+    box-shadow: 0 0 0 $bg-dark-outset,
+                0 0 0 $bg-light-outset,
+                inset -10px -10px 20px $bg-dark-inset,
+                inset 10px 10px 20px $bg-light-inset;
+  
+    transition: all 0.05s ease;
+
+    top: 0;
+}
+
+.interactive:hover .main-body {
+    background: $bg;
+    color: adjust-color($fg, $saturation: 2.5%, $lightness: 2.5%);
+    border: 5px $border solid;
+  
+    box-shadow: 5px 5px 10px $bg-dark-outset,
+                -5px -5px 10px $bg-light-outset,
+                inset 0 0 0 $bg-dark-inset,
+                inset 0 0 0 $bg-light-inset;
+  
+    transition: all 0.05s ease;
+
+    top: 2px;
+}
+
+.interactive:active .main-body {
+    background: $bg-active;
+    color: adjust-color($fg, $saturation: 5%, $lightness: 5%);
+    border: 0 $border solid;
+  
+    box-shadow: -3px -3px 5px $bg-dark-outset,
+                3px 3px 5px $bg-light-outset,
+                inset 10px 10px 20px $bg-dark-inset,
+                inset -10px -10px 20px $bg-light-inset;
+  
+    transition: all 0.025s ease;
+  
+    text-shadow: 0 0 5px $fg;
+
+    top: 4px;
+}

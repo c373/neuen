@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { NeuenComponent } from './neuen.component';
+import { RaisedBtnComponent } from './raised-btn/raised-btn.component';
 
 
 
 @NgModule({
   declarations: [
-    NeuenComponent
+    NeuenComponent,
+    RaisedBtnComponent
   ],
   imports: [
   ],
